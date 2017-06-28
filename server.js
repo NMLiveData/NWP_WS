@@ -2,7 +2,7 @@
 
 var express = require('express');
 var app = express();//create app obj
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 3000;
 
 
 
@@ -23,11 +23,6 @@ app.use(function(err, req, res, next) {
   res.status(500).send('Something broke!');
 }); 
 
-
-var Emotion= require('./controllers/emotionController.js');
-
-
-app.get('/getAll' , Emotion.getAll);//ok
 
 //======================= General ==========================
 //the get func receives a route and a callback func

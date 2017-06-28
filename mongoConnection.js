@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 config = {
-	mongoUrl:'mongodb://net_photo:net.photo456@ds111771.mlab.com:11771/net_photographs'
+	//mongoUrl:'mongodb://net_photo:net.photo456@ds111771.mlab.com:11771/net_photographs' - old DB
+	mongoUrl:'mongodb://net_photo:net.photo456@ds139322.mlab.com:39322/net_photographs'
 };
 
 var options = {
