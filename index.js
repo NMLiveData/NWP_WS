@@ -1,0 +1,2 @@
+require("./mongoConnection");
+require("./server");
