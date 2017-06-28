@@ -32,7 +32,7 @@ app.get('/getAll' , Emotion.getAll);//ok
 //======================= General ==========================
 //the get func receives a route and a callback func
  app.get('/', function (req, res) { 
-     res.status(200).json({message:"NWT App is running!"}); 
+     res.status(200).json({message:"NWT_ws App is running!"}); 
  }); // ------------> connect to login html
 app.listen(port);
 console.log("service is listening on port " + port);
