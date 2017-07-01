@@ -48,17 +48,17 @@ exports.getAllCurrentViewers =function(req, res){
 exports.getAllCurrentLightning =function(req, res){
 
 	Session.find({},{photoID:1, currentLightning:1, _id:0}).
-    exec(function(err, docs){
-        if(err){
-            console.log("error: " + err);
-            return 0;
-        }                 
-        else{
-           console.log("Current Lightning: " + docs);
-           res.json(docs);
-           return;
-        }
-    });
+        exec(function(err, docs){
+            if(err){
+                console.log("error: " + err);
+                return 0;
+            }                 
+            else{
+               console.log("Current Lightning: " + docs);
+               res.json(docs);
+               return;
+            }
+        });
 }
 
 
@@ -69,17 +69,17 @@ exports.getTotalViewes =function(req, res){
 
 	Session.findOne({photoID:id},{photoID:1,appEntranceCounter:1,
 					 currentViewers:1, accumulateSinceStart:1, _id:0}).
-    exec(function(err, docs){
-        if(err){
-            console.log("error: " + err);
-            return 0;
-        }
+        exec(function(err, docs){
+            if(err){
+                console.log("error: " + err);
+                return 0;
+            }
 
-        /* ..... upcoming ..... */                
-        
-        console.log("Total Viewes: " + docs);
-        res.json(docs);
-        return;
-        
-    });
+            /* ..... upcoming ..... */                
+            
+            console.log("Total Viewes: " + docs);
+            res.json(docs);
+            return;
+            
+        });
 }
