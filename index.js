@@ -1,2 +1,2 @@
-require("./mongoConnection");
+require("./database");
 require("./server");
