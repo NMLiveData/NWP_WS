@@ -30,18 +30,18 @@ exports.getAllCurrentViewers =function(req, res){
     var sort = { photoID: 1 };
 
 	Session.find({},{photoID:1, currentViewers:1, _id:0}).
-    sort(sort).
-    exec(function(err, docs){
-        if(err){
-            console.log("error: " + err);
-            return 0;
-        }                 
-        else{
-           console.log("Current Viewers: " + docs);
-           res.json(docs);
-           return;
-        }
-    });
+        sort(sort).
+        exec(function(err, docs){
+            if(err){
+                console.log("error: " + err);
+                return 0;
+            }                 
+            else{
+               console.log("Current Viewers: " + docs);
+               res.json(docs);
+               return;
+            }
+        });
 }
 
 
