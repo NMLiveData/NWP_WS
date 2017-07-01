@@ -6,7 +6,7 @@ var Session = require('../model/session');
 
 exports.incrementAppEntrance =function(req, res){
 
-var id = req.body.id;   
+    var id = req.body.id;   
     console.log(id);
 
     Session.update(

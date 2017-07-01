@@ -19,8 +19,6 @@ exports.systemCalibration =function(req, res){
 
             len = docs.length;                 
             records = docs;
-
-
             //save the current day info by adding new data record to each photo
             while(i<len){
 
