@@ -17,11 +17,22 @@ app.set('port', port);
 
 
 app.use(function(req, res, next){
-	res.header("Access-Control-Allow-Origin", "*");
-	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-	res.set("Content-Type", "Application/json");
+	res.header('Access-Control-Allow-Credentials', 'true');
+	res.header('Access-Control-Allow-Origin',  req.headers.origin);
+	res.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
+	app.set('json spaces', 4);
+	res.set('Content-Type', "application/json");
 	next();
 });
+
+
+// app.use(function(req, res, next){
+// 	res.header("Access-Control-Allow-Origin", "*");
+// 	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+// 	res.set("Content-Type", "Application/json");
+// 	next();
+// });
 app.use(function(err, req, res, next) {
   console.error(err.stack);
   res.status(500).send('Something Broke!');
