@@ -68,7 +68,7 @@ exports.getPohotoInfo = function(req, res){
                 console.log("error: " + err);
                 return 0;
              }  
-            incrementAppEntrance(id);               
+            // incrementAppEntrance(id);               
             console.log("find photo:" + JSON.stringify(doc));
             res.json(doc);
             return;
