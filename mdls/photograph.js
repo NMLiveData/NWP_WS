@@ -124,7 +124,6 @@ function incrementAppEntrance(id){
                     return 0;
                 }
                 console.log("find photo:" + JSON.stringify(res2));
-                res.json(res2);
                 return;
             });
 
