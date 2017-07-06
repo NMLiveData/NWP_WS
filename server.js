@@ -12,15 +12,9 @@ app.use('/images',express.static('/public/images'));
 app.use(cors());
 app.use(bodyParser.json());//enable to return jsons
 app.use(bodyParser.urlencoded({extended:false}));
-//app.enable('trust proxy');//equivalent to app.set('trust proxy', true)
+app.enable('trust proxy');//equivalent to app.set('trust proxy', true)
 app.set('port', port);
 
-
-// app.use(function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   next();
-// });
 
 app.use(function(req, res, next){
 	res.header("Access-Control-Allow-Origin", "*");
