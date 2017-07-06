@@ -3,13 +3,13 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var cloudinary = require('cloudinary');
-var cors = require('cors');
+// var cors = require('cors');
 var app = express();//create app obj - http server
 var port = process.env.PORT || 3000;
 
 
 app.use('/images',express.static('/public/images'));
-app.use(cors());
+// app.use(cors());
 app.use(bodyParser.json());//enable to return jsons
 app.use(bodyParser.urlencoded({extended:false}));
 app.enable('trust proxy');//equivalent to app.set('trust proxy', true)
@@ -47,7 +47,7 @@ app.post('/deletePhoto', photoAction.deletePohoto);
 
 //--
 
-app.post('/incrementAppEntrance', sessionAction.incrementAppEntrance);
+// app.post('/incrementAppEntrance', sessionAction.incrementAppEntrance);
 app.post('/currentViewers', sessionAction.getAllCurrentViewers);
 app.post('/currentLightning', sessionAction.getAllCurrentLightning);
 app.post('/totalViewes', sessionAction.getTotalViewes);
