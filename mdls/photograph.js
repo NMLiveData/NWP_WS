@@ -67,7 +67,8 @@ exports.getPohotoInfo = function(req, res){
             if(err){
                 console.log("error: " + err);
                 return 0;
-             }                 
+             }  
+            incrementAppEntrance(id);               
             console.log("find photo:" + JSON.stringify(doc));
             res.json(doc);
             return;
@@ -109,7 +110,25 @@ exports.deletePohoto = function(req, res){
 }
 
 
+function incrementAppEntrance =function(id){
 
+    // var id = req.body.id;   
+    console.log(id);
+
+    Session.update(
+            {photoID:id},
+            { $inc: {"appEntranceCounter":1}}).
+            exec(function(err, res2){
+                if(err){
+                    console.log("error: " + err);
+                    return 0;
+                }
+                console.log("find photo:" + JSON.stringify(res2));
+                res.json(res2);
+                return;
+            });
+
+}
 
 
 /*exports.updatePohotograph =function(req, res){
