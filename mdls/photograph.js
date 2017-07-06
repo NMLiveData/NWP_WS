@@ -110,7 +110,7 @@ exports.deletePohoto = function(req, res){
 }
 
 
-function incrementAppEntrance =function(id){
+function incrementAppEntrance(id){
 
     // var id = req.body.id;   
     console.log(id);
