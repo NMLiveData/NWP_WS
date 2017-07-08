@@ -68,7 +68,7 @@ exports.getPohotoInfo = function(req, res){
                 console.log("error: " + err);
                 return 0;
              }  
-            // incrementAppEntrance(id);               
+            incrementAppEntrance(id);               
             console.log("find photo:" + JSON.stringify(doc));
             res.json(doc);
             return;
@@ -110,10 +110,9 @@ exports.deletePohoto = function(req, res){
 }
 
 
-function incrementAppEntrance(id){
+/***** General Function *****/
 
-    // var id = req.body.id;   
-    console.log(id);
+function incrementAppEntrance(id){
 
     Session.update(
             {photoID:id},
@@ -126,7 +125,6 @@ function incrementAppEntrance(id){
                 console.log("find photo:" + JSON.stringify(res2));
                 return;
             });
-
 }
 
 

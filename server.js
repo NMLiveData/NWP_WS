@@ -12,7 +12,7 @@ app.use('/images',express.static('/public/images'));
 app.use(cors());
 app.use(bodyParser.json());//enable to return jsons
 app.use(bodyParser.urlencoded({extended:false}));
-app.enable('trust proxy');//equivalent to app.set('trust proxy', true)
+//app.enable('trust proxy');//equivalent to app.set('trust proxy', true)
 app.set('port', port);
 
 
@@ -46,8 +46,7 @@ app.post('/getPhotoInfo', photoAction.getPohotoInfo);
 app.post('/deletePhoto', photoAction.deletePohoto);
 
 //--
-
-// app.post('/incrementAppEntrance', sessionAction.incrementAppEntrance);
+//app.post('/incrementAppEntrance', sessionAction.incrementAppEntrance);
 app.post('/currentViewers', sessionAction.getAllCurrentViewers);
 app.post('/currentLightning', sessionAction.getAllCurrentLightning);
 app.post('/totalViewes', sessionAction.getTotalViewes);
