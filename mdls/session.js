@@ -3,28 +3,6 @@ var Pohotograph = require('../model/photograph');
 var Session = require('../model/session');
 
 
-
-exports.incrementAppEntrance =function(req, res){
-
-    var id = req.body.id;   
-    console.log(id);
-
-    Session.update(
-            {photoID:id},
-            { $inc: {"appEntranceCounter":1}}).
-            exec(function(err, res2){
-                if(err){
-                    console.log("error: " + err);
-                    return 0;
-                }
-                console.log("find photo:" + JSON.stringify(res2));
-                res.json(res2);
-                return;
-            });
-
-}
-
-
 exports.getAllCurrentViewers =function(req, res){
 
     var sort = { photoID: 1 };
@@ -47,7 +25,10 @@ exports.getAllCurrentViewers =function(req, res){
 
 exports.getAllCurrentLightning =function(req, res){
 
-	Session.find({},{photoID:1, currentLightning:1, _id:0}).
+    var sort = { photoID: 1 };
+
+	Session.find({},{photoID:1, currentLightning:1, currentViewers:1, _id:0}).
+        sort(sort).
         exec(function(err, docs){
             if(err){
                 console.log("error: " + err);
@@ -83,3 +64,27 @@ exports.getTotalViewes =function(req, res){
             
         });
 }
+
+
+
+
+
+// exports.incrementAppEntrance =function(req, res){
+
+//     var id = req.body.id;   
+//     console.log(id);
+
+//     Session.update(
+//             {photoID:id},
+//             { $inc: {"appEntranceCounter":1}}).
+//             exec(function(err, res2){
+//                 if(err){
+//                     console.log("error: " + err);
+//                     return 0;
+//                 }
+//                 console.log("find photo:" + JSON.stringify(res2));
+//                 res.json(res2);
+//                 return;
+//             });
+
+// }
