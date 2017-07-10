@@ -72,7 +72,7 @@ exports.getTotalViewes =function(req, res){
 
 function updateAccumulateViewersPerDay(current){
 
-    var records, len;
+    var records, len, i=0;
 
     records = current;
     len = current.length;
