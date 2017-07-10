@@ -15,6 +15,8 @@ exports.getAllCurrentViewers =function(req, res){
                 return 0;
             }                 
             else{
+               //add the current viewers to total per day
+               updateAccumulateViewersPerDay(docs);
                console.log("Current Viewers: " + docs);
                res.json(docs);
                return;
@@ -66,25 +68,20 @@ exports.getTotalViewes =function(req, res){
 }
 
 
+/***** General Function *****/
 
+function updateAccumulateViewersPerDay(current){
 
+    var records, len;
 
-// exports.incrementAppEntrance =function(req, res){
+    records = current;
+    len = current.length;
 
-//     var id = req.body.id;   
-//     console.log(id);
+    while(i<len){
+       Session.update({"photoID":records[i]["photoID"]},
+                      { $inc: {"accumulateViewersPerDay":records[i]["currentViewers"]}}).
+                        exec(function(err,resulte){});
 
-//     Session.update(
-//             {photoID:id},
-//             { $inc: {"appEntranceCounter":1}}).
-//             exec(function(err, res2){
-//                 if(err){
-//                     console.log("error: " + err);
-//                     return 0;
-//                 }
-//                 console.log("find photo:" + JSON.stringify(res2));
-//                 res.json(res2);
-//                 return;
-//             });
-
-// }
+            i++;
+    }
+}
