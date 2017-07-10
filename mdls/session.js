@@ -16,7 +16,7 @@ exports.getAllCurrentViewers =function(req, res){
             }                 
             else{
                //add the current viewers to total per day
-               updateAccumulateViewersPerDay(docs);
+              // updateAccumulateViewersPerDay(docs);
                console.log("Current Viewers: " + docs);
                res.json(docs);
                return;
